@@ -189,3 +189,35 @@ git branch -D "branch name"：强制删除分支
 
 ## 5. Git远程仓库
 
+克隆仓库：
+
+git clone repo-address
+
+
+
+
+
+关联本地仓库和远程仓库
+
+git remote add <short name> <url>
+
+查看当前仓库所对应的远程仓库的别名和地址
+
+git remote -v
+
+指定分支的名称：
+
+git branch -M <name>
+
+将本地仓库的分支与远程仓库的分支连接起来：
+
+git push -u origin main:main
+
+
+
+git pull <远程仓库名><远程分支名>:<本地分支名>
+
+如果省略就是指定拉去远程仓库origin的main分支到本地的main分支
+
+
+
