@@ -138,18 +138,3 @@ polynomial regression多项式回归，该方法包含特征工程和特征缩�
 
 ## 分类算法
 
-binary classification
-
-negative class and positive class
-
-logistic regression
-
-decision boundary：$z=0$
-
-sigmoid function
-
-$f_{\vec w,b(\vec x)}=p(y=1|\vec x;\vec w,b)$
-
-逻辑回归的成本函数
-
-lost function
