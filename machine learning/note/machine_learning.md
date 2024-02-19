@@ -75,3 +75,81 @@ $(x^{(i)},y^{(i)})$ = $i^{th}$ training example
 如果说output target只有一个，那我们说这是一个
 
 univariable linear regression。
+
+
+
+## cost function
+
+成本函数有什么用
+
+对于直线回归，如何计算成本函数
+
+对于有两个变量的函数，如果画成员函数图的话，就是三维的，可以用等高线图来表达
+
+## gradient descent
+
+该算法是用来求使成本函数值最小时的各个参数值的。
+
+从一个起点开始梯度下降，最终只会到达唯一的一个点。从不同的起点开始梯度下降，可能到达不同的点。最终都会到达局部最小值。
+
+$w=w-\alpha \frac{\part}{\part w}J(w,b)$
+
+这里的$\alpha$是学习率learning rate，决定每次w的更新变化多少。学习率的值在0和1之间。如果大，那么每次更新w就会变化更多。（向山谷迈进一大步）
+
+将成本函数与梯度下降结合实现第一个回归算法，线性回归算法。
+
+
+
+## 多维特征
+
+如何将线性回归变得更加强大，而不仅仅是局限于一个变量。
+
+
+
+multiple linear regression
+
+vectorization
+
+Numpy中有方法dot实现两个向量的点乘
+
+为什么矢量化的方法计算更加快，因为每一个乘积项计算是同时进行的。  
+
+对于线性回归算法，可以使用normal equation来求解w和b，它有很多缺点，其不能应用于其他学习算法，同时当number of features is large，该方法比较慢。
+
+feature scaling（特征缩放）
+
+当不同特征之间的范围差距很大时，会导致梯度下降运行缓慢，所以需要重新缩放不同特征，使其具有可比较烦值范围。
+
+平均归一化和Z-socre归一化
+
+如何判断梯度下降是否收敛：
+
+学习曲线（横坐标是迭代次数，纵坐标是成本j），如果J在某次迭代后增加，那么就是学习率设置不佳。
+
+如何设置一个合适的学习率  
+
+如何针对一个问题选择合适的特征，特征工程
+
+polynomial regression多项式回归，该方法包含特征工程和特征缩放两种技术。
+
+
+
+
+
+## 分类算法
+
+binary classification
+
+negative class and positive class
+
+logistic regression
+
+decision boundary：$z=0$
+
+sigmoid function
+
+$f_{\vec w,b(\vec x)}=p(y=1|\vec x;\vec w,b)$
+
+逻辑回归的成本函数
+
+lost function
