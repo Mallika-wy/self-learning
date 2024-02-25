@@ -75,7 +75,6 @@ user.email
    alias ll='ls -al'
    ```
 
-   
 
 ## 2. 本地仓库
 
@@ -102,8 +101,6 @@ git status
 git add . //将工作区的所有文件都添加到暂存区
 git add filename
 ```
-
-
 
 ### 3.3 提交暂存区到本地仓库
 
@@ -189,35 +186,54 @@ git branch -D "branch name"：强制删除分支
 
 ## 5. Git远程仓库
 
-克隆仓库：
+**克隆仓库：**
 
 git clone repo-address
 
-
-
-
-
-关联本地仓库和远程仓库
+**关联本地仓库和远程仓库**
 
 git remote add <short name> <url>
 
-查看当前仓库所对应的远程仓库的别名和地址
+添加一个新的"remote"，并命名为"origin"，"remote"是我的Git仓库在其他计算机上的版本。这样，你就可以将本地的改动推送（push）到这个"remote"。
+
+**查看当前仓库所对应的远程仓库的别名和地址**
 
 git remote -v
 
-指定分支的名称：
+**指定分支的名称：**
 
 git branch -M <name>
 
-将本地仓库的分支与远程仓库的分支连接起来：
+`-M`选项会强制执行这个操作，即使该分支已经存在
+
+**将本地仓库的分支与远程仓库的分支连接起来：**
 
 git push -u origin main:main
 
-
+- `-u`选项会设置"origin"为默认的远程仓库，之后你就可以不加任何参数地使用`git push`和`git pull`。这个命令会将你的新分支以及所有的提交推送到远程仓库。
 
 git pull <远程仓库名><远程分支名>:<本地分支名>
 
-如果省略就是指定拉去远程仓库origin的main分支到本地的main分支
+- 如果省略就是指定拉去远程仓库origin的main分支到本地的main分支
 
+## 6. 案例学习
 
+```sh
+echo "# MyCourses" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:Mallika-wy/MyCourses.git
+git push -u origin main
+```
 
+这组Git命令大致完成了以下操作：
+
+1. `echo "# MyCourses" >> README.md`: 这是一个Shell命令，不是Git命令。它会将"# MyCourses"这个字符串添加（附加）到README.md这个文件的末尾。如果README.md不存在，这个命令会创建它。
+2.  `git init`: 初始化一个新的Git仓库。这会在当前目录下创建一个新的.git子目录，其中包含你新仓库的所有必需的元数据。
+3. `git add README.md`: 这会将README.md文件添加到Git的暂存区，等待下次提交。暂存区是Git的一个区域，用于追踪和记录即将进行提交的改动。 
+4. `git commit -m "first commit"`: 提交暂存区的改动。`-m`选项后面的"first commit"是本次提交的信息，描述了你所做的改动。
+5. `git branch -M main`: 创建一个新的名为"main"的分支，并将HEAD指向这个新分支。`-M`选项会强制执行这个操作，即使"main"分支已经存在。
+6. `git remote add origin git@github.com:Mallika-wy/MyCourses.git`: 添加一个新的"remote"，并命名为"origin"。"remote"是你的Git仓库在其他计算机上的版本（在这里，是在github.com上的版本）。这样，你就可以将本地的改动推送（push）到这个"remote"。
+7. `git push -u origin main`: 将"main"分支推送到"origin"。`-u`选项会设置"origin"为默认的远程仓库，之后你就可以不加任何参数地使用`git push`和`git pull`。这个命令会将你的新分支以及所有的提交推送到远程仓库。 总的来说，这组命令创建了一个新的Git仓库，添加了一个文件，提交了一次改动，然后将改动推送到了远程仓库。
